@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<!-- <h1><center>Create a account</center></h1> -->
+
+<div class="container">
+    <div class="p-4 m-4">
+
+
+        <div>
+            <!-- 12 tak ki space hoti hai long krne ke liye box ko == mx auto means margin auto -->
+            <!-- border rounded se ass pass border aa jaege -->
+
+            <div class="col-lg-5 mt-4 mb-4 mx-auto border mt-4 mb-4  rounded pt-4"> 
+                <h3 class="alert alert-light border rounded"><center>Login Here</center></h3>
+
+        <!-- forms in coutomer -->
+
+            <form action="/login/" method="POST">
+                {% csrf_token %}
+
+                <!-- agar alert box ko error ke time dikhana ho toh -->
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div> 
+                {% endif %}
+
+
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id="" valus="{{values.email}}" 
+                    class="form-control-sm form-control" 
+                    placeholder="example@gmail.com">  
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" class="form-control-sm form-control" 
+                    placeholder="********">  
+                </div>
+                  
+
+                <div class="form-group">
+                    <input class="btn-btn-sm btn-info col-lg-4  " type="submit" value="Login">
+                </div>
+                
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
